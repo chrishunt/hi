@@ -8,7 +8,7 @@
 
 [chrishunt.co/hi](http://chrishunt.co/hi/)
 
-## Description
+## Usage
 
 Hi, I'm here to help you debug your HTTP. To get started, install me.
 
