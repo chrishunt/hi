@@ -1,3 +1,5 @@
+require 'awesome_print'
+
 module Hi
   class Server
     attr_reader :port
