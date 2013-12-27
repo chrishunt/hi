@@ -1,5 +1,2 @@
-require "hi/version"
-
-module Hi
-  # Your code goes here...
-end
+require 'hi/version'
+require 'hi/server'
