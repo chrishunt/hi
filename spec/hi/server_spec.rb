@@ -1,6 +1,8 @@
 require 'hi/server'
 require 'rack/test'
 
+ENV['RACK_ENV'] = 'test'
+
 describe Hi::Server do
   include Rack::Test::Methods
 
