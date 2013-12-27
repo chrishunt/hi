@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hi - I'm here to debug your HTTP</title>
+    <link rel='stylesheet' href='css/bootstrap.min.css'>
+    <link rel='stylesheet' href='css/prettify.css'>
+    <link rel="stylesheet" href='css/index.css'>
+  </head>
+  <body>
+    <div id='wrap'>
+      <div class='container'>
+        <div class='page-header text-center'>
+          <h1><code>gem install hi</code></h1>
+        </div>
+
+
+        <h2>Usage</h2>
+
+        <p>
+          Hi, I'm here to help you debug your HTTP. To get started, install me.
+        </p>
+
+        <pre class='prettyprint lang-shell'>
+$ gem install hi</pre>
+
+        <p>
+          Now start me up:
+        </p>
+
+        <pre class='prettyprint lang-shell'>
+$ hi
+>> Thin web server (v1.5.1 codename Straight Razor)
+>> Maximum connections set to 1024
+>> Listening on 0.0.0.0:3000, CTRL+C to stop</pre>
+
+        <p>
+          If you don't like my default port, try something else:
+        </p>
+
+        <pre class='prettyprint lang-shell'>
+$ hi 1234
+>> Thin web server (v1.5.1 codename Straight Razor)
+>> Maximum connections set to 1024
+>> Listening on 0.0.0.0:1234, CTRL+C to stop</pre>
+
+        <p>
+          Let's start debugging! Just send a request my way and I'll tell you
+          everything I know about it.
+        </p>
+
+        <pre class='prettyprint lang-shell'>
+$ curl localhost:3000/foo/bar\?message=hello
+
+"GET http://localhost:3000/foo/bar?message=hello (2013-12-27 14:18:16 -0800)"
+{
+              :host => "localhost",
+                :ip => "127.0.0.1",
+              :port => 3000,
+    :request_method => "GET",
+            :scheme => "http",
+               :url => "http://localhost:3000/foo/bar?message=hello",
+      :query_string => "message=hello",
+              :body => "",
+    :content_length => nil,
+        :media_type => nil,
+           :referer => nil,
+        :user_agent => "curl/7.30.0",
+               :xhr => false,
+           :headers => {
+           "HTTP_VERSION" => "HTTP/1.1",
+        "HTTP_USER_AGENT" => "curl/7.30.0",
+              "HTTP_HOST" => "localhost:3000",
+            "HTTP_ACCEPT" => "*/*"
+    }
+}</pre>
+
+        <p>
+          The fancier your request, the better.
+        </p>
+
+        <pre class='prettyprint lang-shell'>
+$ curl -H 'X-Requested-With: XMLHttpRequest' -d"message=hello" localhost:3000
+
+"POST http://localhost:3000/ (2013-12-27 14:19:24 -0800)"
+{
+              :host => "localhost",
+                :ip => "127.0.0.1",
+              :port => 3000,
+    :request_method => "POST",
+            :scheme => "http",
+               :url => "http://localhost:3000/",
+      :query_string => "",
+              :body => "message=hello",
+    :content_length => "13",
+        :media_type => "application/x-www-form-urlencoded",
+           :referer => nil,
+        :user_agent => "curl/7.30.0",
+               :xhr => true,
+           :headers => {
+                 "HTTP_VERSION" => "HTTP/1.1",
+              "HTTP_USER_AGENT" => "curl/7.30.0",
+                    "HTTP_HOST" => "localhost:3000",
+                  "HTTP_ACCEPT" => "*/*",
+        "HTTP_X_REQUESTED_WITH" => "XMLHttpRequest"
+    }
+}</pre>
+
+        <p>
+          Am I missing something? Feel free to send a
+          <a href='https://github.com/chrishunt/hi'>pull request</a> my way.
+        </p>
+      </div>
+    </div>
+
+    <div id='footer'>
+      <div class='container'>
+        <p class='text-muted credit'>
+        hi -
+        <a href='https://github.com/chrishunt/hi' target='_blank'>
+          GitHub
+        </a> -
+        <a href='https://github.com/chrishunt/hi/blob/master/LICENSE.txt' target='_blank'>
+          MIT License
+        </a> -
+        <a href='https://twitter.com/chrishunt' target='_blank'>Chris Hunt</a>
+        </p>
+      </div>
+    </div>
+
+    <script src='javascript/prettify.js' type='text/javascript'></script>
+    <script src='javascript/index.js' type='text/javascript'></script>
+  </body>
+</html>
