@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'hi/server'
 require 'rack/test'
 
