@@ -41,7 +41,7 @@ Now start debugging those requests:
 ```bash
 $ curl localhost:3000/foo/bar\?message=hello
 
-GET http://localhost:3000/foo/bar?message=hello (2013-12-27 11:32:47 -0800)
+"GET http://localhost:3000/foo/bar?message=hello (2013-12-27 14:18:16 -0800)"
 {
               :host => "localhost",
                 :ip => "127.0.0.1",
@@ -55,7 +55,13 @@ GET http://localhost:3000/foo/bar?message=hello (2013-12-27 11:32:47 -0800)
         :media_type => nil,
            :referer => nil,
         :user_agent => "curl/7.30.0",
-               :xhr => false
+               :xhr => false,
+           :headers => {
+           "HTTP_VERSION" => "HTTP/1.1",
+        "HTTP_USER_AGENT" => "curl/7.30.0",
+              "HTTP_HOST" => "localhost:3000",
+            "HTTP_ACCEPT" => "*/*"
+    }
 }
 ```
 
@@ -64,30 +70,7 @@ GET http://localhost:3000/foo/bar?message=hello (2013-12-27 11:32:47 -0800)
 ```bash
 $ curl -d 'message=hello' localhost:3000
 
-POST http://localhost:3000/ (2013-12-27 10:24:07 -0800)
-{
-              :host => "localhost",
-                :ip => "127.0.0.1",
-              :port => 3000,
-    :request_method => "POST",
-            :scheme => "http",
-               :url => "http://localhost:3000/",
-      :query_string => "",
-              :body => "message=hello",
-    :content_length => "19",
-        :media_type => "application/x-www-form-urlencoded",
-           :referer => nil,
-        :user_agent => "curl/7.30.0",
-               :xhr => false
-}
-```
-
-Or an xhr request:
-
-```bash
-$ curl -H 'X-Requested-With: XMLHttpRequest' -d "message=hello" localhost:3000
-
-POST http://localhost:3000/ (2013-12-27 10:28:56 -0800)
+"POST http://localhost:3000/ (2013-12-27 14:18:59 -0800)"
 {
               :host => "localhost",
                 :ip => "127.0.0.1",
@@ -101,7 +84,43 @@ POST http://localhost:3000/ (2013-12-27 10:28:56 -0800)
         :media_type => "application/x-www-form-urlencoded",
            :referer => nil,
         :user_agent => "curl/7.30.0",
-               :xhr => true
+               :xhr => false,
+           :headers => {
+           "HTTP_VERSION" => "HTTP/1.1",
+        "HTTP_USER_AGENT" => "curl/7.30.0",
+              "HTTP_HOST" => "localhost:3000",
+            "HTTP_ACCEPT" => "*/*"
+    }
+}
+```
+
+Or an xhr request:
+
+```bash
+$ curl -H 'X-Requested-With: XMLHttpRequest' -d "message=hello" localhost:3000
+
+"POST http://localhost:3000/ (2013-12-27 14:19:24 -0800)"
+{
+              :host => "localhost",
+                :ip => "127.0.0.1",
+              :port => 3000,
+    :request_method => "POST",
+            :scheme => "http",
+               :url => "http://localhost:3000/",
+      :query_string => "",
+              :body => "message=hello",
+    :content_length => "13",
+        :media_type => "application/x-www-form-urlencoded",
+           :referer => nil,
+        :user_agent => "curl/7.30.0",
+               :xhr => true,
+           :headers => {
+                 "HTTP_VERSION" => "HTTP/1.1",
+              "HTTP_USER_AGENT" => "curl/7.30.0",
+                    "HTTP_HOST" => "localhost:3000",
+                  "HTTP_ACCEPT" => "*/*",
+        "HTTP_X_REQUESTED_WITH" => "XMLHttpRequest"
+    }
 }
 ```
 
