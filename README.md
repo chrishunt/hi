@@ -1,5 +1,3 @@
-# hi
-
 [![Travis CI](https://travis-ci.org/chrishunt/hi.png)](https://travis-ci.org/chrishunt/hi)
 [![Coverage Status](https://coveralls.io/repos/chrishunt/hi/badge.png?branch=master)](https://coveralls.io/r/chrishunt/hi)
 [![Code Climate](https://codeclimate.com/github/chrishunt/hi.png)](https://codeclimate.com/github/chrishunt/hi)
