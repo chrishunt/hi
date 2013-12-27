@@ -6,6 +6,8 @@
 
 ### hi, I'm here to debug your HTTP
 
+[chrishunt.co/hi](http://chrishunt.co/hi/)
+
 ## Description
 
 `hi` is a simple HTTP server that will accept any request you throw at it and
