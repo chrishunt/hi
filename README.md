@@ -10,17 +10,13 @@
 
 ## Description
 
-`hi` is a simple HTTP server that will accept any request you throw at it and
-reply with 'hi'. Since all requests are dumped to the console, it's probably
-most useful for debugging.
-
-Get started by installing the gem:
+Hi, I'm here to help you debug your HTTP. To get started, install me.
 
 ```bash
 $ gem install hi
 ```
 
-Then start up the server:
+Now start me up:
 
 ```bash
 $ hi
@@ -29,7 +25,7 @@ $ hi
 >> Listening on 0.0.0.0:3000, CTRL+C to stop
 ```
 
-The default port is `3000`. You can start on another port if you like:
+If you don't like my default port, try something else:
 
 ```bash
 $ hi 1234
@@ -38,7 +34,8 @@ $ hi 1234
 >> Listening on 0.0.0.0:1234, CTRL+C to stop
 ```
 
-Now start debugging those requests:
+Let's start debugging! Just send a request my way and I'll tell you everything
+I know about it.
 
 ```bash
 $ curl localhost:3000/foo/bar\?message=hello
@@ -67,36 +64,7 @@ $ curl localhost:3000/foo/bar\?message=hello
 }
 ```
 
-`hi` accepts anything. Try a `POST` instead:
-
-```bash
-$ curl -d 'message=hello' localhost:3000
-
-"POST http://localhost:3000/ (2013-12-27 14:18:59 -0800)"
-{
-              :host => "localhost",
-                :ip => "127.0.0.1",
-              :port => 3000,
-    :request_method => "POST",
-            :scheme => "http",
-               :url => "http://localhost:3000/",
-      :query_string => "",
-              :body => "message=hello",
-    :content_length => "13",
-        :media_type => "application/x-www-form-urlencoded",
-           :referer => nil,
-        :user_agent => "curl/7.30.0",
-               :xhr => false,
-           :headers => {
-           "HTTP_VERSION" => "HTTP/1.1",
-        "HTTP_USER_AGENT" => "curl/7.30.0",
-              "HTTP_HOST" => "localhost:3000",
-            "HTTP_ACCEPT" => "*/*"
-    }
-}
-```
-
-Or an xhr request:
+The fancier your request, the better.
 
 ```bash
 $ curl -H 'X-Requested-With: XMLHttpRequest' -d "message=hello" localhost:3000
