@@ -39,16 +39,16 @@ $ hi 1234
 Now start debugging those requests:
 
 ```bash
-$ curl localhost:3000\?message=hello
+$ curl localhost:3000/foo/bar\?message=hello
 
-GET http://localhost:3000/?message=hello (2013-12-27 10:27:02 -0800)
+GET http://localhost:3000/foo/bar?message=hello (2013-12-27 11:32:47 -0800)
 {
               :host => "localhost",
                 :ip => "127.0.0.1",
               :port => 3000,
     :request_method => "GET",
             :scheme => "http",
-               :url => "http://localhost:3000/?message=hello",
+               :url => "http://localhost:3000/foo/bar?message=hello",
       :query_string => "message=hello",
               :body => "",
     :content_length => nil,
