@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Hi::VERSION
   spec.authors       = ["Chris Hunt"]
   spec.email         = ["c@chrishunt.co"]
-  spec.summary       = %q{Hi, I'm here to debug your HTTP}
-  spec.description   = %q{Hi, I'm here to debug your HTTP}
+  spec.summary       = %q{hi, I'm here to debug your HTTP}
+  spec.description   = %q{hi, I'm here to debug your HTTP}
   spec.homepage      = "https://github.com/chrishunt/hi"
   spec.license       = "MIT"
 
