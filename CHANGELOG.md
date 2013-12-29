@@ -1,5 +1,10 @@
 # Changelog
 
+##v1.1.1
+*2013-12-28*
+
+- [#3](https://github.com/chrishunt/hi/pull/3) Delegate all request methods to the request
+
 ##v1.1.0
 *2013-12-27*
 
