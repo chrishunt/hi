@@ -5,8 +5,10 @@ module Hi
   class Server
     attr_reader :port
 
+    DEFAULT_PORT = 3000
+
     def initialize(port = nil)
-      @port = (port = port.to_i) > 0 ? port : 3000
+      @port = (port = port.to_i) > 0 ? port : DEFAULT_PORT
     end
 
     def call(env)

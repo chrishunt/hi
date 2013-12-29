@@ -27,8 +27,8 @@ describe Hi::Server do
     expect(last_response.body).to eq('hi')
   end
 
-  it 'defaults to port 3000' do
-    expect(app.port).to eq(3000)
+  it 'has a default port' do
+    expect(app.port).to eq Hi::Server::DEFAULT_PORT
   end
 
   it 'allows a customized port' do
@@ -37,8 +37,8 @@ describe Hi::Server do
   end
 
   it 'uses default port when customized port is invalid' do
-    expect(described_class.new(nil).port).to    eq(3000)
-    expect(described_class.new('nope').port).to eq(3000)
-    expect(described_class.new(-100).port).to   eq(3000)
+    expect(described_class.new(nil).port).to    eq Hi::Server::DEFAULT_PORT
+    expect(described_class.new('nope').port).to eq Hi::Server::DEFAULT_PORT
+    expect(described_class.new(-100).port).to   eq Hi::Server::DEFAULT_PORT
   end
 end
