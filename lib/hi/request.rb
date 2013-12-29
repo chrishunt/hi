@@ -2,6 +2,25 @@ require 'rack/request'
 
 module Hi
   class Request
+    extend Forwardable
+
+    ATTRIBUTES = [
+      :host,
+      :ip,
+      :port,
+      :request_method,
+      :scheme,
+      :url,
+      :query_string,
+      :body,
+      :content_length,
+      :media_type,
+      :referer,
+      :user_agent,
+      :xhr?
+    ]
+
+    def_delegators :request, *ATTRIBUTES
     attr_reader :env, :request
 
     def initialize(env)
@@ -13,23 +32,21 @@ module Hi
       env.select { |key| key.start_with? 'HTTP_' }
     end
 
+    def body_string
+      body.string if body
+    end
+
     def to_h
-      {
-        host: request.host,
-        ip: request.ip,
-        port: request.port,
-        request_method: request.request_method,
-        scheme: request.scheme,
-        url: request.url,
-        query_string: request.query_string,
-        body: (request.body.string if request.body),
-        content_length: request.content_length,
-        media_type: request.media_type,
-        referer: request.referer,
-        user_agent: request.user_agent,
-        xhr: request.xhr?,
+      request_hash.merge({
+        body: body_string,
         headers: headers,
-      }
+      })
+    end
+
+    private
+
+    def request_hash
+      ATTRIBUTES.inject({}) { |hash, attr| hash[attr] = send(attr); hash }
     end
   end
 end

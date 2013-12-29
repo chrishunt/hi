@@ -25,4 +25,14 @@ describe Hi::Request do
       expect(request.headers).to eq headers
     end
   end
+
+  describe '#host' do
+    it 'returns the host passed in the environment' do
+      host = 'amazing.dev'
+
+      request = described_class.new('HTTP_HOST' => host)
+
+      expect(request.host).to eq host
+    end
+  end
 end
