@@ -1,27 +1,41 @@
-require 'awesome_print'
-require 'hi/request'
+require 'thin'
 
 module Hi
   class Server
-    attr_reader :port
+    attr_reader :app
 
-    def initialize(port = nil)
-      @port = (port = port.to_i) > 0 ? port : 3000
+    CantStartServerError = Class.new(RuntimeError)
+
+    MAX_ATTEMPTS = 5
+
+    def initialize(app)
+      @app = app
     end
 
-    def call(env)
-      log Hi::Request.new(env).to_h
+    def start(port = app.port, attempts = 1)
+      log "Starting server on port #{port}...\n\n"
+      start! port
+    rescue RuntimeError => e
+      if attempts < MAX_ATTEMPTS
+        log "\nUnable to start server, trying random port instead."
+        start random_port, attempts + 1
+      else
+        raise CantStartServerError.new(e)
+      end
+    end
 
-      [ 200, { 'Content-Type' => 'text/plain' }, ['hi'] ]
+    def start!(port)
+      Thin::Server.start '0.0.0.0', port, app
     end
 
     private
 
-    def log(request)
-      unless ENV['RACK_ENV'] == 'test'
-        ap "#{request[:request_method]} #{request[:url]} (#{Time.now})"
-        ap request
-      end
+    def random_port
+      1000 + Random.rand(9000)
+    end
+
+    def log(message)
+      puts message unless ENV['RACK_ENV'] == 'test'
     end
   end
 end

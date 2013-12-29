@@ -1,7 +1,4 @@
 #!/usr/bin/env ruby
-require 'thin'
 require 'hi'
 
-app = Hi::Server.new(ARGV.pop)
-
-Thin::Server.start '0.0.0.0', app.port, app
+Hi::Server.new(Hi::App.new(ARGV.pop)).start

@@ -1,3 +1,4 @@
+require 'forwardable'
 require 'rack/request'
 
 module Hi
