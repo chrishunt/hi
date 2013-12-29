@@ -2,7 +2,7 @@ require 'awesome_print'
 require 'hi/request'
 
 module Hi
-  class Server
+  class App
     attr_reader :port
 
     DEFAULT_PORT = 3000
