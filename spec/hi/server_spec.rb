@@ -7,10 +7,21 @@ describe Hi::Server do
   let(:server) { described_class.new(app) }
 
   describe '#start' do
-    it 'starts up the app on a Thin server' do
-      Thin::Server.should_receive(:start).with '0.0.0.0', app.port, app
+    it 'starts up the app' do
+      server.should_receive(:start!).with app.port
 
       server.start
+    end
+
+    it 'tries to start again on a different port requested port is in use' do
+      server
+        .should_receive(:start!)
+        .exactly(Hi::Server::MAX_ATTEMPTS).times
+        .and_raise RuntimeError
+
+      expect {
+        server.start
+      }.to raise_error Hi::Server::CantStartServerError
     end
   end
 end
