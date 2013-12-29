@@ -2,8 +2,6 @@ require 'spec_helper'
 require 'hi/app'
 require 'rack/test'
 
-ENV['RACK_ENV'] = 'test'
-
 describe Hi::App do
   include Rack::Test::Methods
 
