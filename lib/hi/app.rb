@@ -1,29 +1,28 @@
-require 'awesome_print'
 require 'hi/request'
+require 'hi/logger'
 
 module Hi
   class App
-    attr_reader :port
+    attr_reader :port, :logger
 
     DEFAULT_PORT = 3000
 
-    def initialize(port = nil)
+    def initialize(port = nil, logger = Hi::Logger.new)
       @port = (port = port.to_i) > 0 ? port : DEFAULT_PORT
+      @logger = logger
     end
 
     def call(env)
-      log Hi::Request.new(env).to_h
+      request = Hi::Request.new(env).to_h
+
+      log "#{request[:request_method]} #{request[:url]} (#{Time.now})"
+      log request
 
       [ 200, { 'Content-Type' => 'text/plain' }, ['hi'] ]
     end
 
-    private
-
-    def log(request)
-      unless ENV['RACK_ENV'] == 'test'
-        ap "#{request[:request_method]} #{request[:url]} (#{Time.now})"
-        ap request
-      end
+    def log(message)
+      logger.log message
     end
   end
 end
