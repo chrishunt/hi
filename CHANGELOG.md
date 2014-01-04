@@ -1,5 +1,10 @@
 # Changelog
 
+##v1.2.1
+*2014-01-04*
+
+- [#6](https://github.com/chrishunt/hi/pull/6) Extract logger
+
 ##v1.2.0
 *2013-12-29*
 
