@@ -1,4 +1,5 @@
 require 'hi/version'
+require 'hi/logger'
 require 'hi/request'
 require 'hi/app'
 require 'hi/server'
