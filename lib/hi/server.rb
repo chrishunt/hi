@@ -13,11 +13,11 @@ module Hi
     end
 
     def start(port = app.port, attempts = 1)
-      log "Starting server on port #{port}...\n\n"
+      app.log "Starting server on port #{port}...\n\n"
       start! port
     rescue RuntimeError => e
       if attempts < MAX_ATTEMPTS
-        log "\nUnable to start server, trying random port instead."
+        app.log "\nUnable to start server, trying random port instead."
         start random_port, attempts + 1
       else
         raise CantStartServerError.new(e)
@@ -32,10 +32,6 @@ module Hi
 
     def random_port
       1000 + Random.rand(9000)
-    end
-
-    def log(message)
-      puts message unless ENV['RACK_ENV'] == 'test'
     end
   end
 end
