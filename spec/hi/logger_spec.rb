@@ -11,7 +11,7 @@ describe Hi::Logger do
     end
 
     it 'prints message to standard out' do
-      stdout = capture_stdout do
+      stdout = Mute::IO.capture_stdout do
         logger.log message
       end
 
@@ -25,24 +25,11 @@ describe Hi::Logger do
     end
 
     it 'does not print message to standard out' do
-      stdout = capture_stdout do
+      stdout = Mute::IO.capture_stdout do
         logger.log message
       end
 
       expect(stdout).to be_empty
     end
-  end
-
-  private
-
-  def capture_stdout
-    captured = StringIO.new
-    stdout = $stdout
-    $stdout = captured
-
-    yield
-
-    $stdout = stdout
-    captured.string
   end
 end
