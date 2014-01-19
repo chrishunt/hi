@@ -1,5 +1,10 @@
 # Changelog
 
+##v1.2.2
+*2014-01-19*
+
+- [#8](https://github.com/chrishunt/hi/pull/8) Use Cane
+
 ##v1.2.1
 *2014-01-04*
 
