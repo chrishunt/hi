@@ -1,6 +1,7 @@
 require 'thin'
 
 module Hi
+  # Wrapper for Thin server with retries and a friendly error message
   class Server
     attr_reader :app
 

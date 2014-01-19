@@ -1,6 +1,7 @@
 require 'awesome_print'
 
 module Hi
+  # Logger that uses puts for strings, awesome print for everything else
   class Logger
     def log(message)
       print message unless testing
