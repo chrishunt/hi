@@ -2,6 +2,7 @@ require 'forwardable'
 require 'rack/request'
 
 module Hi
+  # Wrapper for rack request that exposes headers and body string
   class Request
     extend Forwardable
 

@@ -2,6 +2,7 @@ require 'hi/request'
 require 'hi/logger'
 
 module Hi
+  # Main app; http server that prints requests as they come in
   class App
     attr_reader :port, :logger
 
