@@ -8,14 +8,13 @@ describe Hi::Server do
 
   describe '#start' do
     it 'starts up the app' do
-      server.should_receive(:start!).with app.port
+      expect(server).to receive(:start!).with app.port
 
       server.start
     end
 
     it 'tries to start again on a different port requested port is in use' do
-      server
-        .should_receive(:start!)
+      expect(server).to receive(:start!)
         .exactly(Hi::Server::MAX_ATTEMPTS).times
         .and_raise RuntimeError
 
