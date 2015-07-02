@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'cane',           '~> 2.6.2'
   spec.add_development_dependency 'cane-hashcheck', '~> 1.2.0'
-  spec.add_development_dependency 'coveralls',      '~> 0.7.0'
+  spec.add_development_dependency 'coveralls',      '~> 0.8.2'
   spec.add_development_dependency 'mute',           '~> 1.1.0'
   spec.add_development_dependency 'pry',            '~> 0.9.12.4'
   spec.add_development_dependency 'rack-test',      '~> 0.6.2'
