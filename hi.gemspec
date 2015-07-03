@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'awesome_print', '~> 1.6.1'
   spec.add_dependency 'thin',          '~> 1.6.3'
 
-  spec.add_development_dependency 'cane',           '~> 2.6.1'
+  spec.add_development_dependency 'cane',           '~> 2.6.2'
   spec.add_development_dependency 'cane-hashcheck', '~> 1.2.0'
   spec.add_development_dependency 'coveralls',      '~> 0.7.0'
   spec.add_development_dependency 'mute',           '~> 1.1.0'
