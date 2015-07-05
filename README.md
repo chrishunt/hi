@@ -2,7 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/chrishunt/hi/badge.png?branch=master)](https://coveralls.io/r/chrishunt/hi)
 [![Code Climate](https://codeclimate.com/github/chrishunt/hi.png)](https://codeclimate.com/github/chrishunt/hi)
 
-![](https://raw2.github.com/chrishunt/hi/master/screenshot.png)
+![](https://raw.githubusercontent.com/chrishunt/hi/master/screenshot.png)
 
 ### hi, I'm here to debug your HTTP
 
