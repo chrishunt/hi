@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'awesome_print', '~> 1.2.0'
+  spec.add_dependency 'awesome_print', '~> 1.6.1'
   spec.add_dependency 'thin',          '~> 1.5.1'
 
   spec.add_development_dependency 'cane',           '~> 2.6.1'
